@@ -65,4 +65,11 @@ public class OrdersController {
         orderservice.delete(id);
         return new ResponseEntity<Object>(delete, HttpStatus.OK);
     }
+
+    @GetMapping("/orderHystrix/{id}")
+    public String getOrdersHystrix(@PathVariable("id") Long id) {
+        log.info("orderHystrix Items For OrderId: "+id);
+        return orderservice.TestHystrix(id);
+
+    }
 }
